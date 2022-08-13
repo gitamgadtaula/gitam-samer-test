@@ -13,6 +13,7 @@
         <el-input
           placeholder="Please input product keyword"
           v-model="keyword"
+          @input="keywordChanged"
         ></el-input>
       </el-col>
       <el-col>
@@ -61,6 +62,9 @@ export default {
       console.log(product);
       this.currentImage = product.images[0]?.thumbnail;
       this.dialogVisible = true;
+    },
+    keywordChanged() {
+      this.notFound = false;
     },
     search() {
       const that = this;
